@@ -121,6 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff58accc1e9450e48a829222f77d4bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  limitesMin: {x: -9.3, y: -3, z: 0}
-  limitesMax: {x: 9.3, y: 5.7, z: 0}
+  limitesMin: {x: -7, y: -2, z: 0}
+  limitesMax: {x: 7, y: 5, z: 0}
   minDistance: 3

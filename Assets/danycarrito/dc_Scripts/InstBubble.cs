@@ -17,7 +17,7 @@ public class InstBubble : MonoBehaviour
 
     private void Start()
     {
-       // CreateBubbles();
+        CreateBubbles();
     }
 
 
@@ -25,44 +25,19 @@ public class InstBubble : MonoBehaviour
     {
         foreach (GameObject burbuja in bubbles)
         {
-            Vector3 newPosition = GenerarPosicionValida();
-            burbuja.transform.position = newPosition;
-            burbuja.SetActive(true);
-        }
-    }
-
-    public Vector3 GenerarPosicionValida()
-    {
-        Vector3 newPosition;
-
-        // Repetir hasta encontrar una posición válida
-        do
-        {
-            newPosition = new Vector3(
-                Random.Range(limitesMin.x, limitesMax.x), // X aleatoria
-                Random.Range(limitesMin.y, limitesMax.y), // Y aleatoria
-                Random.Range(limitesMin.z, limitesMax.z)  // Z aleatoria
-            );
-
-        } while (!EsPosicionValida(newPosition));
-
-        return newPosition;
-    }
-
-    public bool EsPosicionValida(Vector3 posicion)
-    {
-        foreach (GameObject burbuja in bubbles)
-        {
-            // Ignorar la burbuja actual (desactivada o la que se clickea)
-            if (burbuja == gameObject || !burbuja.activeSelf) continue;
-
-            // Verificar la distancia con otras burbujas
-            if (Vector3.Distance(posicion, burbuja.transform.position) < minDistance)
+            if (!burbuja.activeSelf) // Si la burbuja está desactivada
             {
-                return false; // La posición está demasiado cerca de otra burbuja
+                // Generar una posición aleatoria dentro de los límites
+                Vector3 posicionAleatoria = new Vector3(
+                    Random.Range(limitesMin.x, limitesMax.x), // X aleatoria
+                    Random.Range(limitesMin.y, limitesMax.y), // Y aleatoria
+                    Random.Range(limitesMin.z, limitesMax.z)  // Z aleatoria
+                );
+
+                // Activar la burbuja y moverla a la posición aleatoria
+                burbuja.transform.position = posicionAleatoria;
+                burbuja.SetActive(true);
             }
         }
-
-        return true; // La posición es válida
-    }
+    } 
 }
