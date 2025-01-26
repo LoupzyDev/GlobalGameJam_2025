@@ -5,6 +5,7 @@ public class BubbleClick : MonoBehaviour
     public Vector3 limitesMin;
     public Vector3 limitesMax;
     public float minDistance;
+    public AudioSource bubbleSound;
 
     void OnMouseDown()
     {
@@ -15,6 +16,7 @@ public class BubbleClick : MonoBehaviour
                 Random.Range(limitesMin.y, limitesMax.y), 
                 Random.Range(limitesMin.z, limitesMax.z));
 
+            bubbleSound.Play();
             transform.position = newPosition;
             Timer.Instance.score++;
         }
