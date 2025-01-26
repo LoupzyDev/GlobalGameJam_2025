@@ -7,16 +7,24 @@ public class Timer : MonoBehaviour
     public static Timer Instance { get; private set; }
 
     public float timer;
+    public float timerTutorial;
     public float score;
     public bool isAlive;
+    public GameObject panelTimer;
     public GameObject panelScore;
+    public GameObject panelTutorial;
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
 
     private void Awake()
     {
         Instance = this;
-        isAlive = true;
+
+    }
+
+    private void Start()
+    {
+        isAlive = false;
     }
 
     void Update()
@@ -26,12 +34,23 @@ public class Timer : MonoBehaviour
 
         int displayScore = Mathf.Max(0, Mathf.FloorToInt(score));
         scoreText.text = displayScore.ToString();
-
-        timer -= Time.deltaTime;
+        
+        timerTutorial -= Time.deltaTime;
         if(timer <= 0)
         {
             isAlive = false;
             panelScore.SetActive(true);
+            panelTimer.SetActive(false);
+        }
+        else
+        {
+            timer -= Time.deltaTime;
+            panelTimer.SetActive(true);
+        }
+        if(timerTutorial <= 0)
+        {
+            panelTutorial.SetActive(false);
+            isAlive = true;
         }
     }
 }
