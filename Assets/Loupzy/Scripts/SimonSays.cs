@@ -9,6 +9,17 @@ public class SimonSays : MonoBehaviour {
     private int currentStep = 0;
     private bool isPlayerTurn = false;
 
+    private List<Texture2D> gradientTextures = new List<Texture2D>();
+    public List<Gradient> gradients;
+
+    private void Awake() {
+        for (int i = 0; i < bubbles.Length; i++) {
+            Texture2D texture = GenerateGradientTexture(gradients[i]);
+            gradientTextures.Add(texture);
+            Material bubbleMaterial = bubbles[i].GetComponent<Renderer>().material;
+            bubbleMaterial.SetTexture("_Gradient", texture);
+        }
+    }
     void Start() {
         StartNewRound();
     }
@@ -41,7 +52,7 @@ public class SimonSays : MonoBehaviour {
         var bubble = bubbles[index];
         var material = bubble.GetComponent<Renderer>().material;
 
-        material.color *= 2; 
+        material.SetFloat("_AddAlpha", 2f);
         bubble.transform.localScale *= 1.2f; 
     }
 
@@ -49,7 +60,7 @@ public class SimonSays : MonoBehaviour {
         var bubble = bubbles[index];
         var material = bubble.GetComponent<Renderer>().material;
 
-        material.color /= 2; 
+        material.SetFloat("_AddAlpha", 0f);
         bubble.transform.localScale /= 1.2f; 
     }
 
@@ -89,6 +100,17 @@ public class SimonSays : MonoBehaviour {
         yield return new WaitForSeconds(0.3f);
         ResetBubble(bubbleIndex);
     }
+    Texture2D GenerateGradientTexture(Gradient gradient) {
+        int textureWidth = 256;
+        Texture2D texture = new Texture2D(textureWidth, 1, TextureFormat.RGBA32, false);
 
+        for (int i = 0; i < textureWidth; i++) {
+            float t = i / (float)(textureWidth - 1);
+            Color color = gradient.Evaluate(t);
+            texture.SetPixel(i, 0, color);
+        }
 
+        texture.Apply();
+        return texture;
+    }
 }
