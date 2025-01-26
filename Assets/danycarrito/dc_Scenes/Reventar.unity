@@ -2373,8 +2373,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2142926523}
   - {fileID: 1645082846}
+  - {fileID: 2142926523}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2647,7 +2647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2142926523
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2722,10 +2722,6 @@ PrefabInstance:
     - target: {fileID: 4937838693590091794, guid: 0577ed73c22ffeb4daf544cc15b75c8f, type: 3}
       propertyPath: m_Name
       value: Bubble
-      objectReference: {fileID: 0}
-    - target: {fileID: 4937838693590091794, guid: 0577ed73c22ffeb4daf544cc15b75c8f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7396465416277716086, guid: 0577ed73c22ffeb4daf544cc15b75c8f, type: 3}
       propertyPath: m_LocalPosition.x
