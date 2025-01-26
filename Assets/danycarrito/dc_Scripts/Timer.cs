@@ -25,6 +25,9 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         isAlive = false;
+        panelTutorial.SetActive(true);
+        panelScore.SetActive(false);
+        panelTimer.SetActive(false);
     }
 
     void Update()
