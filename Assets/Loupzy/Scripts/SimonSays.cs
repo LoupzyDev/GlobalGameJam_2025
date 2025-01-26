@@ -11,6 +11,7 @@ public class SimonSays : MonoBehaviour {
 
     private List<Texture2D> gradientTextures = new List<Texture2D>();
     public List<Gradient> gradients;
+    private bool isStartGame=false;
 
     private void Awake() {
         for (int i = 0; i < bubbles.Length; i++) {
@@ -20,10 +21,12 @@ public class SimonSays : MonoBehaviour {
             bubbleMaterial.SetTexture("_Gradient", texture);
         }
     }
-    void Start() {
-        StartNewRound();
-    }
+
     void Update() {
+        if (!isStartGame && Input.GetMouseButtonDown(0)) {
+            isStartGame = true;
+            StartNewRound();
+        }
         if (isPlayerTurn && Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit)) {
@@ -82,6 +85,7 @@ public class SimonSays : MonoBehaviour {
     private void GameOver() {
         Debug.Log("Game Over");
         sequence.Clear();
+        isStartGame = false;
         StartNewRound();
     }
     IEnumerator PlaySequence() {
