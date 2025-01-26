@@ -123,3 +123,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limitesMin: {x: -9.3, y: -3, z: 0}
   limitesMax: {x: 9.3, y: 5.7, z: 0}
+  minDistance: 3

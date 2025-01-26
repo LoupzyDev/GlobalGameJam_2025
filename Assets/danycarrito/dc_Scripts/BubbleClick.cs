@@ -4,14 +4,21 @@ public class BubbleClick : MonoBehaviour
 {
     public Vector3 limitesMin;
     public Vector3 limitesMax;
+    public float minDistance;
 
-    private void OnMouseDown()
+    void OnMouseDown()
     {
-        Vector3 newPosicion = new Vector3(
-           Random.Range(limitesMin.x, limitesMax.x), 
-           Random.Range(limitesMin.y, limitesMax.y),
-           Random.Range(limitesMin.z, limitesMax.z));
+        if(Timer.Instance.isAlive)
+        {
+            Vector3 newPosition = new Vector3(
+                Random.Range(limitesMin.x, limitesMax.x), 
+                Random.Range(limitesMin.y, limitesMax.y), 
+                Random.Range(limitesMin.z, limitesMax.z));
 
-        transform.position = newPosicion; 
+            transform.position = newPosition;
+            Timer.Instance.score++;
+        }
     }
+
+
 }
