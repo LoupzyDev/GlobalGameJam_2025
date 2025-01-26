@@ -25,16 +25,15 @@ public class InstBubble : MonoBehaviour
     {
         foreach (GameObject burbuja in bubbles)
         {
-            if (!burbuja.activeSelf) // Si la burbuja está desactivada
+            if (!burbuja.activeSelf) 
             {
-                // Generar una posición aleatoria dentro de los límites
+
                 Vector3 posicionAleatoria = new Vector3(
-                    Random.Range(limitesMin.x, limitesMax.x), // X aleatoria
-                    Random.Range(limitesMin.y, limitesMax.y), // Y aleatoria
-                    Random.Range(limitesMin.z, limitesMax.z)  // Z aleatoria
+                    Random.Range(limitesMin.x, limitesMax.x), 
+                    Random.Range(limitesMin.y, limitesMax.y), 
+                    Random.Range(limitesMin.z, limitesMax.z)  
                 );
 
-                // Activar la burbuja y moverla a la posición aleatoria
                 burbuja.transform.position = posicionAleatoria;
                 burbuja.SetActive(true);
             }
