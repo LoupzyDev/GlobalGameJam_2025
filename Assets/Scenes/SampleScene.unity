@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 302628274}
   - component: {fileID: 302628273}
   m_Layer: 0
-  m_Name: Sphere (2)
+  m_Name: Bubble_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,7 +182,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c86990c46bc34e246b554cc6e1e03764, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -221,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 302628272}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.57, y: 0, z: 3.44}
+  m_LocalPosition: {x: -2.3000002, y: 2.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 406619144}
   - component: {fileID: 406619143}
   m_Layer: 0
-  m_Name: Sphere (1)
+  m_Name: Bubble_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +427,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7c35e93378f870b4ead49d5a9b2ddca8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -466,7 +466,7 @@ Transform:
   m_GameObject: {fileID: 406619142}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.57, y: 0, z: 0}
+  m_LocalPosition: {x: -2.3000002, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 982042023}
   - component: {fileID: 982042022}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Bubble_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -705,7 +705,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 66e9253b937144640b927970627b67b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -744,7 +744,7 @@ Transform:
   m_GameObject: {fileID: 982042021}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 2.27, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -779,8 +779,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de87ba86c848134598df34e747448dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colors: []
-  bubbles: []
+  bubbles:
+  - {fileID: 982042021}
+  - {fileID: 406619142}
+  - {fileID: 302628272}
+  - {fileID: 1188592813}
 --- !u!4 &1060174671
 Transform:
   m_ObjectHideFlags: 0
@@ -809,7 +812,7 @@ GameObject:
   - component: {fileID: 1188592815}
   - component: {fileID: 1188592814}
   m_Layer: 0
-  m_Name: Sphere (3)
+  m_Name: Bubble_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -859,7 +862,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: d680c28b7a49c9c448b7e7ce13dbfdd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -898,7 +901,7 @@ Transform:
   m_GameObject: {fileID: 1188592813}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 0, z: 3.44}
+  m_LocalPosition: {x: 2.17, y: 2.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
