@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
     private void Awake() {
 
         Instance = this;
-
+        gameData.playerScore = 0;
         if (gameData.remainingScenes == null || gameData.remainingScenes.Count == 0) {
             gameData.ResetRemainingScenes();
         }
@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour {
 
     public void GetRandomGame() {
         if (gameData.remainingScenes.Count == 0) {
-            gameData.ResetRemainingScenes(); 
+            SceneManager.LoadScene("Score");
+            return;
         }
 
         int randomIndex = Random.Range(0, gameData.remainingScenes.Count);
@@ -28,25 +29,19 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(selectedScene);
     }
 
-
-    public void PauseGame() {
-        Time.timeScale = 0f;
-        pausePanel.SetActive(true);
-    }
-
-
-    public void ResumeGame() {
-        Time.timeScale = 1f;
-        pausePanel.SetActive(false);
-    }
-
-
     public void ExitGame() {
         Debug.Log("Cerrando el juego...");
         Application.Quit();
     }
 
+    public void RestartGame() {
 
+        gameData.playerScore = 0;
+
+        gameData.ResetRemainingScenes();
+
+        SceneManager.LoadScene("MainMenu");
+    }
     public void UpdatePlayerScore(float scoreToAdd) {
         gameData.playerScore += scoreToAdd; 
         Debug.Log($"Puntaje actualizado: {gameData.playerScore}");

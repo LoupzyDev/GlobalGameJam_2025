@@ -13,6 +13,7 @@ public class SimonSays : MonoBehaviour {
     public List<Gradient> gradients;
     private bool isStartGame=false;
 
+    [SerializeField] GameObject panelTutorial;
     private void Awake() {
         for (int i = 0; i < bubbles.Length; i++) {
             Texture2D texture = GenerateGradientTexture(gradients[i]);
@@ -25,6 +26,7 @@ public class SimonSays : MonoBehaviour {
     void Update() {
         if (!isStartGame && Input.GetMouseButtonDown(0)) {
             isStartGame = true;
+            panelTutorial.SetActive(false);
             StartNewRound();
         }
         if (isPlayerTurn && Input.GetMouseButtonDown(0)) {
@@ -83,10 +85,12 @@ public class SimonSays : MonoBehaviour {
         }
     }
     private void GameOver() {
-        Debug.Log("Game Over");
-        sequence.Clear();
-        isStartGame = false;
-        StartNewRound();
+        //Debug.Log("Game Over");
+        //sequence.Clear();
+        //isStartGame = false;
+        //StartNewRound();
+        GameManager.Instance.UpdatePlayerScore(currentStep);
+        GameManager.Instance.GetRandomGame();
     }
     IEnumerator PlaySequence() {
         foreach (var index in sequence) {

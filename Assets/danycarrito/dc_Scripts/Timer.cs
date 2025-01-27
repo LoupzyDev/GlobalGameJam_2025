@@ -12,7 +12,6 @@ public class Timer : MonoBehaviour
     public bool isAlive;
     public bool isTutOver;
     public GameObject panelTimer;
-    public GameObject panelScore;
     public GameObject panelTutorial;
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI scoreText;
@@ -27,7 +26,6 @@ public class Timer : MonoBehaviour
         isAlive = false;
         isTutOver = false;
         panelTutorial.SetActive(true);
-        panelScore.SetActive(false);
         panelTimer.SetActive(false);
     }
 
@@ -47,7 +45,8 @@ public class Timer : MonoBehaviour
         if(timer <= 0)
         {
             isAlive = false;
-            panelScore.SetActive(true);
+            GameManager.Instance.UpdatePlayerScore(score * 0.5f);
+            GameManager.Instance.GetRandomGame();
             panelTimer.SetActive(false);
         }
         else
